@@ -1,0 +1,77 @@
+---
+title: "Emacs VS RStudio"
+subtitle: "Japan.R 2016"
+author: "@y__mattu"
+date: "2016/11/27"
+output:
+  revealjs::revealjs_presentation:
+    css: for_revealjs.css
+    theme: sky
+    highlight: pygments
+    center: true
+---
+
+
+# はじめに
+
+## 自己紹介
+
+<div class="column1">
+- 松村優哉(@y__mattu)
+- http://y-mattu.hatenablog.com/
+- 大学生
+- 計量経済学、ベイズ統計、因果推論、マーケティング
+- 言語: SAS, R, Python
+- 近況: 春から慶應
+</div>
+
+<div class="column2">
+![icon](twitter_icon.jpg)
+</div>
+
+
+## 今日のお話
+- R の実行環境について
+- Emacs とは
+- RStudio の**強い**機能
+- これらの機能を Emacs で
+
+
+# R の実行環境について
+
+
+# Emacs とは
+
+
+# RStudio の**強い**機能
+
+## 補完
+
+## オブジェクトのサマリーと中身
+
+## 画像の表示
+
+## R Notebook
+- RStudio 1.0 から正式採用
+- R Markdown の YAML
+    - output: html_notebook
+
+
+# これらの機能を Emacs で
+
+
+# 最後に
+
+## 環境選び
+自分に合った環境を選びましょう。<br>
+でも食わず嫌いはよくないかも？
+
+## 本日の資料置き場
+
+
+## Enjoy!!
+
+
+
+
+
