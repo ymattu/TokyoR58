@@ -5,6 +5,7 @@ author: "@y__mattu"
 date: "2016/11/27"
 output:
   revealjs::revealjs_presentation:
+    output_dir: "./docs"
     transition: convex
     css: for_revealjs.css
     theme: sky
