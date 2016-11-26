@@ -74,6 +74,7 @@ output:
 
 # RStudio の**強い**機能を Emacs で
 
+
 ## 補完
 
 ## オブジェクトのサマリーと中身
@@ -82,11 +83,14 @@ output:
 
 ## 関数のヘルプ
 
+## R Markdown
+
 ## R Notebook
 - RStudio 1.0 から正式採用
 - HTML 変換は R Markdown の YAML
     - `output: html_notebook`
 
+## ウィンドウ管理
 
 # (たぶん) RStudio ではできないこと
 ## パラグラフ単位での実行
