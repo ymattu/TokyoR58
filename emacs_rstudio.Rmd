@@ -1,6 +1,6 @@
 ---
 title: "RStudio vs Emacs"
-subtitle: "Japan.R 2016"
+subtitle: "Japan.R 2016 LT"
 author: "@y__mattu"
 date: "2016/11/27"
 output:
@@ -15,7 +15,7 @@ output:
     reveal_options:
       slideNumber: true
       chalkboard:
-        theme: whiteboard
+        theme: chalkboard
 ---
 
 ```{r setup, include = FALSE}
@@ -46,7 +46,7 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
 - R のプログラミング環境
 - RStudio の**強い**機能を Emacs で
 - (たぶん) RStudio ではできないこと
-- (現状) RStudio でしかできないこと
+- (現状) RStudio じゃないとできないこと
 - 最後に
 
 
@@ -54,6 +54,9 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
 # R のプログラミング環境
 
 ## やっぱ定番! RStudio!
+- R の統合環境のデファクトスタンダード
+- R で分析するための機能はほぼ揃ってる
+- レポート作成もできるし最高!
 
 
 ## RStudio 社の Hadley 氏も
@@ -111,6 +114,10 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
 ## オブジェクトへの色付け
 
 ## "<-" の一発入力
+
+## 何が嬉しいか
+- ESS、というより Emacs の機能をフル活用することが重要
+- Lisp でどこまでも拡張可能(ということになってる)
 
 
 
