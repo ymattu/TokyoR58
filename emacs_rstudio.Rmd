@@ -5,13 +5,15 @@ author: "@y__mattu"
 date: "2016/11/27"
 output:
   revealjs::revealjs_presentation:
+    transition: convex
     css: for_revealjs.css
     theme: sky
-    highlight: pygments
+    highlight: kate
     center: true
     self_contained: false
     reveal_plugins: ["chalkboard"]
     reveal_options:
+      slideNumber: true
       chalkboard:
         theme: whiteboard
 ---
@@ -46,6 +48,7 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
 - (たぶん) RStudio ではできないこと
 - (現状) RStudio でしかできないこと
 - 最後に
+
 
 
 # R のプログラミング環境
