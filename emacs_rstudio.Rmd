@@ -1,5 +1,5 @@
 ---
-title: "Emacs VS RStudio"
+title: "RStudio vs Emacs"
 subtitle: "Japan.R 2016"
 author: "@y__mattu"
 date: "2016/11/27"
@@ -21,7 +21,7 @@ output:
 - http://y-mattu.hatenablog.com/
 - 大学生
 - 計量経済学、ベイズ統計、因果推論、マーケティング
-- 言語: SAS, R, Python
+- 言語: R, SAS, Python
 - 近況: 春から慶應
 </div>
 
@@ -30,20 +30,49 @@ output:
 </div>
 
 
-## 今日のお話
-- R の実行環境について
-- Emacs とは
-- RStudio の**強い**機能
-- これらの機能を Emacs で
+## アウトライン
+- R のプログラミング環境
+- RStudio の**強い**機能を Emacs で
+- (たぶん) RStudio ではできないこと
+- (現状) RStudio でしかできないこと
+- 最後に
 
 
-# R の実行環境について
+# R のプログラミング環境
+
+## やっぱ定番! RStudio!
 
 
-# Emacs とは
+## RStudio 社の Hadley 氏も
+> RStudio は、ほとんどの R ユーザーにとってベストだと私が考えている開発環境です。
+
+<div style="text-align: right;">
+『 R パッケージ開発入門』より
+</div>
 
 
-# RStudio の**強い**機能
+## Hadley 氏は一方で
+> RStudio の唯一の競争相手は、Emacs Speaks Statistics (ESS) (https://ess.r-project.org/) だと思います。Emacs を学び、自分に合うようにカスタマイズする時間を費やすのを惜しまない人にとっては、やりがいのある開発環境でしょう。
+
+<div style="text-align: right;">
+『 R パッケージ開発入門』より
+</div>
+
+
+## ESS とは
+- Emacs で統計関連の言語を記述・実行するためのパッケージ
+- 対応言語は R, S-PLUS, SAS, STATA, BUGS/JAGS, Julia
+- 構文ハイライトの色、ウィンドウ構成など挙動の全てをカスタマイズ可能
+- 設定は Emacs Lisp で書く
+- Emacs なのでキーボードでほとんどの操作が可能
+
+
+## スクリーンショット
+*.R ファイルを開くと自動でウィンドウ分割して R を起動するよう設定
+![ess-r](screenshot_ess.png)
+
+
+# RStudio の**強い**機能を Emacs で
 
 ## 補完
 
@@ -51,25 +80,64 @@ output:
 
 ## 画像の表示
 
+## 関数のヘルプ
+
 ## R Notebook
 - RStudio 1.0 から正式採用
-- R Markdown の YAML
-    - output: html_notebook
+- HTML 変換は R Markdown の YAML
+    - `output: html_notebook`
 
 
-# これらの機能を Emacs で
+# (たぶん) RStudio ではできないこと
+## パラグラフ単位での実行
 
+## オブジェクトへの色付け
+
+## "<-" の一発入力
+
+
+
+# (現状) RStudio じゃないとできないこと
+## マウスでグリグリするやつ
+javascript ベースで描画するパッケージ(leafret, plotly, dygraphs,...)はブラウザじゃないと見られない<br>
+→テキストエディタの限界？
+
+## 希望はある？
+- xwidget(Emacs 25 より正式実装)
+- Emacs 上でフルブラウザが動く
+- javascript ももちろん動く
 
 # 最後に
 
 ## 環境選び
-自分に合った環境を選びましょう。<br>
-でも食わず嫌いはよくないかも？
+<div class="column1">
+RStudio が向いてる人
 
-## 本日の資料置き場
+- R しか使わない
+- 細かいことにこだわらない
+- RStudio が好き
+- RStudio でいい
+- Lisp とかめんどい。
+</div>
+
+<div class="column2">
+ESS が向いてる人
+
+- 複数言語を使用、全部を同じキーバンドでやりたい
+- 自分に合う環境を作り込みたい
+- RStudio が嫌い
+- マウスを使いたくない
+</div>
 
 
-## Enjoy!!
+## 続きはアドカレで!
+この話の詳細(実装方法など)は RStudio Advent Calendar 22 日目の記事で書く予定です
+
+## Enjoy !!
+本日の資料置き場
+
+[GitHub](https://github.com/ymattu/JapanR2016)
+
 
 
 
