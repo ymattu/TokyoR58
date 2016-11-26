@@ -19,9 +19,10 @@ output:
 <div class="column1">
 - 松村優哉(@y__mattu)
 - http://y-mattu.hatenablog.com/
-- 大学生
+- 大学 4 年生
 - 計量経済学、ベイズ統計、因果推論、マーケティング
 - 言語: R, SAS, Python
+- Japan.R 運営チーム
 - 近況: 春から慶應
 </div>
 
