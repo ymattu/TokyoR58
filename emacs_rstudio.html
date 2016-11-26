@@ -11,6 +11,42 @@
   <link rel="stylesheet" href="emacs_rstudio_files/reveal.js-3.3.0/css/reveal.css"/>
 
 
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #dddddd; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { font-weight: bold; } /* Keyword */
+code > span.dt { color: #800000; } /* DataType */
+code > span.dv { color: #0000ff; } /* DecVal */
+code > span.bn { color: #0000ff; } /* BaseN */
+code > span.fl { color: #800080; } /* Float */
+code > span.ch { color: #ff00ff; } /* Char */
+code > span.st { color: #dd0000; } /* String */
+code > span.co { color: #808080; font-style: italic; } /* Comment */
+code > span.al { color: #00ff00; font-weight: bold; } /* Alert */
+code > span.fu { color: #000080; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #ff0000; font-weight: bold; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #ff00ff; } /* SpecialChar */
+code > span.vs { color: #dd0000; } /* VerbatimString */
+code > span.ss { color: #dd0000; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { } /* Variable */
+code > span.cf { } /* ControlFlow */
+code > span.op { } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { font-weight: bold; } /* Preprocessor */
+code > span.at { } /* Attribute */
+code > span.do { color: #808080; font-style: italic; } /* Documentation */
+code > span.an { color: #808080; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #808080; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Information */
+</style>
 
 <link rel="stylesheet" href="emacs_rstudio_files/reveal.js-3.3.0/css/theme/sky.css" id="theme">
 
@@ -80,7 +116,7 @@
 
 <section>
     <h1 class="title">RStudio vs Emacs</h1>
-  <h1 class="subtitle">Japan.R 2016 LT</h1>
+  <h1 class="subtitle">Japan.R 2016</h1>
     <h2 class="author"><span class="citation" data-cites="y__mattu">@y__mattu</span></h2>
     <h3 class="date">2016/11/27</h3>
 </section>
@@ -146,45 +182,101 @@
 </section><section class="slide level2">
 <h1>スクリーンショット</h1>
 <p>*.R ファイルを開くと自動でウィンドウ分割して R を起動するよう設定 <img src="screenshot_ess.png" alt="ess-r" /></p>
+</section><section class="slide level2">
+<h1>ウィンドウ切り替えも</h1>
+<p>切り替えを好みのショートカットで一発 <img src="screenshot_window.png" alt="window" /></p>
 </section></section>
 <section><section id="rstudio--emacs-" class="titleslide slide level1"><h1>RStudio の<strong>強い</strong>機能を Emacs で</h1></section><section class="slide level2">
 <h1>補完</h1>
+<ul>
+<li><strong>auto-complete.el</strong></li>
+<li>ライブラリ名もオブジェクト名も関数名もバッチリ</li>
+</ul>
+<p><img src="ac.png" alt="ac" /></p>
 </section><section class="slide level2">
-<h1>オブジェクトのサマリーと中身</h1>
+<h1>オブジェクトのサマリー</h1>
+<ul>
+<li><strong>ess-R-object-popup.el</strong></li>
+<li>オブジェクト上にカーソルを合わせて <code>\C-c \C-g (ctrl+c+g)</code> で <code>summary()</code> の結果がポップアップ表示</li>
+</ul>
+<p><img src="popup.png" alt="popup" /></p>
 </section><section class="slide level2">
-<h1>画像の表示</h1>
+<h1>オブジェクトの中身</h1>
+<ul>
+<li><strong>ess-R-object-popup.el</strong></li>
+<li>オブジェクト上にカーソルを合わせて <code>\C-c v (ctrl+c v)</code> で 中身が別ウィンドウで開く</li>
+</ul>
+<p><img src="data-view.png" alt="view" /></p>
 </section><section class="slide level2">
 <h1>関数のヘルプ</h1>
+<ul>
+<li><strong>helm-R.el</strong>で絞り込むと</li>
+</ul>
+<p><img src="helm-R.png" alt="helmR" /></p>
+</section><section class="slide level2">
+<h1>こんな感じで読める</h1>
+<p><img src="rmecabc.png" alt="RmeCabC_help" /></p>
 </section><section id="r-markdown" class="slide level2">
 <h1>R Markdown</h1>
+<div class="column1">
+<ul>
+<li><strong>polymode.el</strong></li>
+<li>一つのバッファに複数の<br>言語モードを混在させる<br> → R + Markdown<br> →どっちもきちんとハイライトされる</li>
+<li><code>rmarkdown::render()</code> を実行する Emacs の関数を作り HTML 化</li>
+</ul>
+</div>
+<div class="column2">
+<p><img src="rmd1.png" alt="rmd" /></p>
+</div>
 </section><section id="r-notebook" class="slide level2">
 <h1>R Notebook</h1>
+<div class="column1">
 <ul>
 <li>RStudio 1.0 から正式採用</li>
 <li>HTML 変換は R Markdown の YAML
 <ul>
 <li><code>output: html_notebook</code></li>
 </ul></li>
+<li>インライン画像表示は<strong>inlineR.el</strong> (Emacs は元々普通に画像表示ができる)</li>
 </ul>
+</div>
+<div class="column2">
+<p><img src="rmd.png" alt="rmd" /></p>
+</div>
 </section><section class="slide level2">
 <h1>ウィンドウ管理</h1>
+<ul>
+<li><strong>e2wm-R.el</strong></li>
+</ul>
+<p><img src="window_image.png" alt="window2" /></p>
 </section></section>
 <section><section id="-rstudio-" class="titleslide slide level1"><h1>(たぶん) RStudio ではできないこと</h1></section><section class="slide level2">
 <h1>パラグラフ単位での実行</h1>
+<ul>
+<li><code>\C-c \C-c</code> でパラグラフを実行</li>
+<li><code>\C-c \C-j</code> で現在行を実行 <br> →範囲選択の必要なし !</li>
+</ul>
 </section><section class="slide level2">
 <h1>オブジェクトへの色付け</h1>
+<ul>
+<li><code>~/.emacs.d/init.el</code> (Emacs の設定ファイル) に以下のように書く。お好みで。</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp">(defvar ess-R-fl-keyword:assign-vars
+  (cons <span class="st">&quot;</span><span class="ch">\\</span><span class="st">(</span><span class="ch">\\</span><span class="st">(?2:</span><span class="ch">\\</span><span class="st">s</span><span class="ch">\&quot;\\</span><span class="st">).+</span><span class="ch">\\</span><span class="st">2</span><span class="ch">\\</span><span class="st">|</span><span class="ch">\\</span><span class="st">sw+</span><span class="ch">\\</span><span class="st">)</span><span class="ch">\\</span><span class="st">s-*</span><span class="ch">\\</span><span class="st">(&lt;-</span><span class="ch">\\</span><span class="st">)&quot;</span>
+        <span class="st">&#39;(1 font-lock-variable-name-face)))</span>
+
+(add-to-list <span class="st">&#39;ess-R-font-lock-keywords &#39;</span>(ess-R-fl-keyword:assign-vars . t) t)</code></pre></div>
+<p><img src="highlight.png" alt="highlight" /></p>
 </section><section class="slide level2">
 <h1>“&lt;-” の一発入力</h1>
-</section><section class="slide level2">
-<h1>何が嬉しいか</h1>
 <ul>
-<li>ESS、というより Emacs の機能をフル活用することが重要</li>
-<li>Lisp でどこまでも拡張可能(ということになってる)</li>
+<li><code>_</code> を入力すると自動で <code>&lt;-</code> になる</li>
+<li>普通に <code>_</code> にしたいときは <code>_</code> を二回続けて入力</li>
 </ul>
 </section></section>
 <section><section id="-rstudio-" class="titleslide slide level1"><h1>(現状) RStudio じゃないとできないこと</h1></section><section class="slide level2">
 <h1>マウスでグリグリするやつ</h1>
-<p>javascript ベースで描画するパッケージ(leafret, plotly, dygraphs,…)はブラウザじゃないと見られない<br> →テキストエディタの限界？</p>
+<p>javascript ベースで描画するパッケージ (leafret, plotly, dygraphs,…) はブラウザじゃないと見られない<br> →テキストエディタの限界？</p>
 </section><section class="slide level2">
 <h1>希望はある？</h1>
 <ul>
@@ -216,7 +308,7 @@
 </div>
 </section><section class="slide level2">
 <h1>続きはアドカレで!</h1>
-<p>この話の詳細(実装方法など)は RStudio Advent Calendar 22 日目の記事で書く予定です</p>
+<p>この話の詳細(実装方法など)は <a href="http://qiita.com/advent-calendar/2016/rstudio-ide">RStudio Advent Calendar</a> 22 日目の記事で書く予定です</p>
 </section><section id="enjoy" class="slide level2">
 <h1>Enjoy !!</h1>
 <p>本日の資料置き場</p>
@@ -246,7 +338,7 @@
 
 
         chalkboard: {
-          theme: 'chalkboard',
+          theme: 'whiteboard',
         },
 
         keyboard: {

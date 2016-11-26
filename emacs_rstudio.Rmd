@@ -1,6 +1,6 @@
 ---
 title: "RStudio vs Emacs"
-subtitle: "Japan.R 2016 LT"
+subtitle: "Japan.R 2016"
 author: "@y__mattu"
 date: "2016/11/27"
 output:
@@ -15,7 +15,7 @@ output:
     reveal_options:
       slideNumber: true
       chalkboard:
-        theme: chalkboard
+        theme: whiteboard
 ---
 
 ```{r setup, include = FALSE}
@@ -87,43 +87,105 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
 *.R ファイルを開くと自動でウィンドウ分割して R を起動するよう設定
 ![ess-r](screenshot_ess.png)
 
+## ウィンドウ切り替えも
+切り替えを好みのショートカットで一発
+![window](screenshot_window.png)
+
 
 # RStudio の**強い**機能を Emacs で
 
 
 ## 補完
+- **auto-complete.el**
+- ライブラリ名もオブジェクト名も関数名もバッチリ
 
-## オブジェクトのサマリーと中身
+![ac](ac.png)
 
-## 画像の表示
+
+## オブジェクトのサマリー
+- **ess-R-object-popup.el**
+- オブジェクト上にカーソルを合わせて `\C-c \C-g (ctrl+c+g)` で `summary()` の結果がポップアップ表示
+
+![popup](popup.png)
+
+
+## オブジェクトの中身
+- **ess-R-object-popup.el**
+- オブジェクト上にカーソルを合わせて `\C-c v (ctrl+c v)` で 中身が別ウィンドウで開く
+
+![view](data-view.png)
+
 
 ## 関数のヘルプ
+- **helm-R.el**で絞り込むと
+
+![helmR](helm-R.png)
+
+## こんな感じで読める
+![RmeCabC_help](rmecabc.png)
+
 
 ## R Markdown
+<div class="column1">
+- **polymode.el**
+- 一つのバッファに複数の<br>言語モードを混在させる<br>
+→ R + Markdown<br>
+→どっちもきちんとハイライトされる
+- `rmarkdown::render()` を実行する Emacs の関数を作り HTML 化
+</div>
+
+<div class="column2">
+![rmd](rmd1.png)
+</div>
+
 
 ## R Notebook
+<div class="column1">
 - RStudio 1.0 から正式採用
 - HTML 変換は R Markdown の YAML
     - `output: html_notebook`
+- インライン画像表示は**inlineR.el** (Emacs は元々普通に画像表示ができる)
+</div>
+
+<div class="column2">
+![rmd](rmd.png)
+</div>
+
 
 ## ウィンドウ管理
+- **e2wm-R.el**
+
+![window2](window_image.png)
+
 
 # (たぶん) RStudio ではできないこと
 ## パラグラフ単位での実行
+- `\C-c \C-c` でパラグラフを実行
+- `\C-c \C-j` で現在行を実行 <br>
+→範囲選択の必要なし !
 
 ## オブジェクトへの色付け
+- `~/.emacs.d/init.el` (Emacs の設定ファイル) に以下のように書く。お好みで。
+```{Rcpp init, eval = FALSE}
+(defvar ess-R-fl-keyword:assign-vars
+  (cons "\\(\\(?2:\\s\"\\).+\\2\\|\\sw+\\)\\s-*\\(<-\\)"
+        '(1 font-lock-variable-name-face)))
+
+(add-to-list 'ess-R-font-lock-keywords '(ess-R-fl-keyword:assign-vars . t) t)
+```
+
+![highlight](highlight.png)
+
 
 ## "<-" の一発入力
-
-## 何が嬉しいか
-- ESS、というより Emacs の機能をフル活用することが重要
-- Lisp でどこまでも拡張可能(ということになってる)
-
+- `_` を入力すると自動で `<-` になる
+- 普通に `_` にしたいときは `_` を二回続けて入力
 
 
 # (現状) RStudio じゃないとできないこと
+
 ## マウスでグリグリするやつ
-javascript ベースで描画するパッケージ(leafret, plotly, dygraphs,...)はブラウザじゃないと見られない<br>
+javascript ベースで描画するパッケージ (leafret, plotly, dygraphs,...) はブラウザじゃないと見られない<br>
 →テキストエディタの限界？
 
 ## 希望はある？
@@ -155,7 +217,7 @@ ESS が向いてる人
 
 
 ## 続きはアドカレで!
-この話の詳細(実装方法など)は RStudio Advent Calendar 22 日目の記事で書く予定です
+この話の詳細(実装方法など)は [RStudio Advent Calendar](http://qiita.com/advent-calendar/2016/rstudio-ide) 22 日目の記事で書く予定です
 
 ## Enjoy !!
 本日の資料置き場

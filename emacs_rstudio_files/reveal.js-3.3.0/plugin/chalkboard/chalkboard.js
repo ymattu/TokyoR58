@@ -44,7 +44,7 @@ var RevealChalkboard = window.RevealChalkboard || (function(){
 			pen = [ 'url(' + path + 'img/boardmarker.png), auto',
 				'url(' + path + 'img/boardmarker.png), auto' ];
 			draw = [ drawWithPen , drawWithPen ];
-			color = [ 'rgba(0,0,255,1)', 'rgba(0,0,255,1)' ];
+			color = [ 'rgba(255,0,0,1)', 'rgba(255,0,0,1)' ]; // change color
 			break;
 		default:
 			background = [ 'rgba(127,127,127,.1)' , path + 'img/blackboard.png' ];
