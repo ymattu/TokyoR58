@@ -5,11 +5,19 @@ author: "@y__mattu"
 date: "2016/11/27"
 output:
   revealjs::revealjs_presentation:
-    css: for_revealjs.css
     theme: sky
-    highlight: pygments
     center: true
+    self_contained: false
+    reveal_plugins: "chalkboard"
+    reveal_options:
+      chalkboard:
+        theme: whiteboard
+    css: for-revealjs.css
 ---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+```
 
 
 # はじめに
