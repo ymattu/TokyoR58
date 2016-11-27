@@ -38,7 +38,7 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
 </div>
 
 <div class="column2">
-![icon](twitter_icon.jpg)
+![icon](./img/twitter_icon.jpg)
 </div>
 
 
@@ -85,11 +85,11 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
 
 ## スクリーンショット
 *.R ファイルを開くと自動でウィンドウ分割して R を起動するよう設定
-![ess-r](screenshot_ess.png)
+![ess-r](./img/screenshot_ess.png)
 
 ## ウィンドウ切り替えも
 切り替えを好みのショートカットで一発
-![window](screenshot_window.png)
+![window](./img/screenshot_window.png)
 
 
 # RStudio の**強い**機能を Emacs で
@@ -99,30 +99,30 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
 - **auto-complete.el**
 - ライブラリ名もオブジェクト名も関数名もバッチリ
 
-![ac](ac.png)
+![ac](./img/ac.png)
 
 
 ## オブジェクトのサマリー
 - **ess-R-object-popup.el**
 - オブジェクト上にカーソルを合わせて `\C-c \C-g (ctrl+c+g)` で `summary()` の結果がポップアップ表示
 
-![popup](popup.png)
+![popup](./img/popup.png)
 
 
 ## オブジェクトの中身
 - **ess-R-object-popup.el**
 - オブジェクト上にカーソルを合わせて `\C-c v (ctrl+c v)` で 中身が別ウィンドウで開く
 
-![view](data-view.png)
+![view](./img/data-view.png)
 
 
 ## 関数のヘルプ
 - **helm-R.el**で絞り込むと
 
-![helmR](helm-R.png)
+![helmR](./img/helm-R.png)
 
 ## こんな感じで読める
-![RmeCabC_help](rmecabc.png)
+![RmeCabC_help](./img/rmecabc.png)
 
 
 ## R Markdown
@@ -135,7 +135,7 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
 </div>
 
 <div class="column2">
-![rmd](rmd1.png)
+![rmd](./img/rmd1.png)
 </div>
 
 
@@ -148,14 +148,14 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
 </div>
 
 <div class="column2">
-![rmd](rmd.png)
+![rmd](./img/rmd.png)
 </div>
 
 
 ## ウィンドウ管理
 - **e2wm-R.el**
 
-![window2](window_image.png)
+![window2](./img/window_image.png)
 
 
 # (たぶん) RStudio ではできないこと
@@ -174,7 +174,7 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
 (add-to-list 'ess-R-font-lock-keywords '(ess-R-fl-keyword:assign-vars . t) t)
 ```
 
-![highlight](highlight.png)
+![highlight](./img/highlight.png)
 
 
 ## "<-" の一発入力
