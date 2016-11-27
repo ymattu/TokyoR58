@@ -104,7 +104,7 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
 
 ## オブジェクトのサマリー
 - **ess-R-object-popup.el**
-- オブジェクト上にカーソルを合わせて `\C-c \C-g (ctrl+c+g)` で `summary()` の結果がポップアップ表示
+- オブジェクト上にカーソルを合わせて `\C-c \C-g (ctrl+c+g)` で `str()` や `summary()` の結果がポップアップ表示
 
 ![popup](./img/popup.png)
 
