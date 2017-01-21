@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="@y__mattu" />
+  <title>R と SAS の連携</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="r_and_sas_files/reveal.js-3.3.0/css/reveal.css"/>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #dddddd; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { font-weight: bold; } /* Keyword */
+code > span.dt { color: #800000; } /* DataType */
+code > span.dv { color: #0000ff; } /* DecVal */
+code > span.bn { color: #0000ff; } /* BaseN */
+code > span.fl { color: #800080; } /* Float */
+code > span.ch { color: #ff00ff; } /* Char */
+code > span.st { color: #dd0000; } /* String */
+code > span.co { color: #808080; font-style: italic; } /* Comment */
+code > span.al { color: #00ff00; font-weight: bold; } /* Alert */
+code > span.fu { color: #000080; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #ff0000; font-weight: bold; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #ff00ff; } /* SpecialChar */
+code > span.vs { color: #dd0000; } /* VerbatimString */
+code > span.ss { color: #dd0000; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { } /* Variable */
+code > span.cf { } /* ControlFlow */
+code > span.op { } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { font-weight: bold; } /* Preprocessor */
+code > span.at { } /* Attribute */
+code > span.do { color: #808080; font-style: italic; } /* Documentation */
+code > span.an { color: #808080; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #808080; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="r_and_sas_files/reveal.js-3.3.0/css/theme/sky.css" id="theme">
+
+
+  <!-- some tweaks to reveal css -->
+  <style type="text/css">
+    .reveal h1 { font-size: 2.0em; }
+    .reveal h2 { font-size: 1.5em;  }
+    .reveal h3 { font-size: 1.25em;	}
+    .reveal h4 { font-size: 1em;	}
+
+    .reveal .slides>section,
+    .reveal .slides>section>section {
+      padding: 0px 0px;
+    }
+
+
+
+    .reveal table {
+      border-width: 1px;
+      border-spacing: 2px;
+      border-style: dotted;
+      border-color: gray;
+      border-collapse: collapse;
+      font-size: 0.7em;
+    }
+
+    .reveal table th {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      font-weight: bold;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+    .reveal table td {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+  </style>
+
+    <style type="text/css">code{white-space: pre;}</style>
+
+    <link rel="stylesheet" href="for_revealjs.css"/>
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'r_and_sas_files/reveal.js-3.3.0/css/print/pdf.css' : 'r_and_sas_files/reveal.js-3.3.0/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+    <script src="r_and_sas_files/reveal.js-3.3.0/lib/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <link href="r_and_sas_files/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+    <h1 class="title">R と SAS の連携</h1>
+  <h1 class="subtitle">Tokyo.R #58</h1>
+    <h2 class="author"><span class="citation" data-cites="y__mattu">@y__mattu</span></h2>
+    <h3 class="date">2017/1/21</h3>
+</section>
+
+<section><section class="titleslide slide level1"><h1>はじめに</h1></section><section class="slide level2">
+<h1>自己紹介</h1>
+<div class="column1">
+<ul>
+<li>松村優哉(<span class="citation" data-cites="y__mattu">@y__mattu</span>)</li>
+<li><strong>匿名知的集団ホクソエム</strong>(2016.3-)</li>
+<li>大学 4 年生</li>
+<li>計量経済学、ベイズ統計、因果推論、マーケティング</li>
+<li>言語: R, SAS, Python</li>
+<li>近況: 卒論つらい</li>
+</ul>
+</div>
+<div class="column2">
+<p><img src="img/twitter_icon.jpg" alt="icon" /></p>
+</div>
+</section></section>
+<section><section class="titleslide slide level1"><h1>分析ソフトの強さと弱さ</h1></section><section id="r" class="slide level2">
+<h1>R</h1>
+<div class="column1">
+<ul>
+<li>フリー</li>
+<li>パッケージが豊富 <br> →できることたくさん</li>
+</ul>
+</div>
+<div class="column2">
+<ul>
+<li>遅い</li>
+<li>大きすぎるデータを突っ込んだり大きすぎる計算をやらせると死ぬ</li>
+</ul>
+</div>
+</section><section id="sas" class="slide level2">
+<h1>SAS</h1>
+<div class="column1">
+<ul>
+<li>ビッグデータに強い</li>
+<li>SQL がそのまま書ける</li>
+</ul>
+</div>
+<div class="column2">
+<ul>
+<li>ライセンスが高い</li>
+<li>分析が製品依存<br> 「R にはパッケージあるけど SAS にはない」分析が意外とある</li>
+</ul>
+</div>
+</section><section id="sas-" class="slide level2">
+<h1>SAS はフリー版もあるよ</h1>
+<p>SAS University Edition</p>
+</section></section>
+<section><section id="sas--r" class="titleslide slide level1"><h1>SAS で R</h1></section><section class="slide level2">
+<h1>設定ファイルをいじる</h1>
+<p>いじり方→ <a href="http://y-mattu.hatenablog.com/entry/2016/01/13/114625" class="uri">http://y-mattu.hatenablog.com/entry/2016/01/13/114625</a></p>
+</section></section>
+<section><section id="r--sas" class="titleslide slide level1"><h1>R で SAS</h1></section><section class="slide level2">
+<h1>道具</h1>
+<p>{haven}パッケージ(tidyverse)</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;haven&quot;</span>)
+<span class="kw">library</span>(haven)</code></pre></div>
+</section><section class="slide level2">
+<h1>読み込み</h1>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">d &lt;-<span class="st"> </span><span class="kw">read_sas</span>(<span class="st">&quot;hoge.sas7bdat&quot;</span>)</code></pre></div>
+</section><section class="slide level2">
+<h1>書き出し</h1>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># d に何かしらの処理をして d_1 とした上で</span>
+<span class="kw">write_sas</span>(d_1, <span class="st">&quot;fuga.sas7bdat&quot;</span>)</code></pre></div>
+</section></section>
+<section><section class="titleslide slide level1"><h1>結論</h1></section><section class="slide level2">
+<h1>言いたいこと</h1>
+<p>{haven} パッケージはいいぞ</p>
+</section><section class="slide level2">
+<h1>ブログに詳しく書いてます</h1>
+<p><a href="http://y-mattu.hatenablog.com/entry/2016/12/09/083000" class="uri">http://y-mattu.hatenablog.com/entry/2016/12/09/083000</a></p>
+</section></section>
+<section><section id="enjoy" class="titleslide slide level1"><h1>Enjoy !</h1></section></section>
+    </div>
+  </div>
+
+  <script src="r_and_sas_files/reveal.js-3.3.0/lib/js/head.min.js"></script>
+  <script src="r_and_sas_files/reveal.js-3.3.0/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Display the page number of the current slide
+        slideNumber: true,
+        // Push each slide change to the browser history
+        history: true,
+        // Vertical centering of slides
+        center: true,
+        // Transition style
+        transition: 'convex', // none/fade/slide/convex/concave/zoom
+        // Transition style for full page slide backgrounds
+        backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
+
+
+        chalkboard: {
+          theme: 'whiteboard',
+        },
+
+        keyboard: {
+          67: function() { RevealChalkboard.toggleNotesCanvas() },    // toggle notes canvas when 'c' is pressed
+          66: function() { RevealChalkboard.toggleChalkboard() }, // toggle chalkboard when 'b' is pressed
+          46: function() { RevealChalkboard.clear() },    // clear chalkboard when 'DEL' is pressed
+           8: function() { RevealChalkboard.reset() },    // reset chalkboard data on current slide when 'BACKSPACE' is pressed
+          68: function() { RevealChalkboard.download() }, // downlad recorded chalkboard drawing when 'd' is pressed
+        },
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'r_and_sas_files/reveal.js-3.3.0/plugin/chalkboard/chalkboard.js', async: true },
+        ]
+      });
+    </script>
+  <!-- dynamically load mathjax for compatibility with self-contained -->
+  <script>
+    (function () {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+      document.getElementsByTagName("head")[0].appendChild(script);
+    })();
+  </script>
+
+<script>
+  (function() {
+    if (window.jQuery) {
+      Reveal.addEventListener( 'slidechanged', function(event) {  
+        window.jQuery(event.previousSlide).trigger('hidden');
+        window.jQuery(event.currentSlide).trigger('shown');
+      });
+    }
+  })();
+</script>
+
+
+  </body>
+</html>

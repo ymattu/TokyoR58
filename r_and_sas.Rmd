@@ -1,0 +1,107 @@
+---
+title: "R と SAS の連携"
+subtitle: "Tokyo.R #58"
+author: "@y__mattu"
+date: "2017/1/21"
+output:
+  revealjs::revealjs_presentation:
+    transition: convex
+    css: for_revealjs.css
+    theme: sky
+    highlight: kate
+    center: true
+    self_contained: false
+    reveal_plugins: ["chalkboard"]
+    reveal_options:
+      slideNumber: true
+      chalkboard:
+        theme: whiteboard
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+```
+
+
+# はじめに
+
+## 自己紹介
+
+<div class="column1">
+- 松村優哉(@y__mattu)
+- **匿名知的集団ホクソエム**(2016.3-)
+- 大学 4 年生
+- 計量経済学、ベイズ統計、因果推論、マーケティング
+- 言語: R, SAS, Python
+- 近況: 卒論つらい
+</div>
+
+<div class="column2">
+![icon](./img/twitter_icon.jpg)
+</div>
+
+
+# 分析ソフトの強さと弱さ
+
+## R
+<div class="column1">
+- フリー
+- パッケージが豊富 <br>
+→できることたくさん
+</div>
+
+<div class="column2">
+- 遅い
+- 大きすぎるデータを突っ込んだり大きすぎる計算をやらせると死ぬ
+</div>
+
+## SAS
+<div class="column1">
+- ビッグデータに強い
+- SQL がそのまま書ける
+</div>
+
+<div class="column2">
+- ライセンスが高い
+- 分析が製品依存<br>
+「R にはパッケージあるけど SAS にはない」分析が意外とある
+</div>
+
+## SAS はフリー版もあるよ
+SAS University Edition
+
+
+# SAS で R
+
+## 設定ファイルをいじる
+いじり方→ http://y-mattu.hatenablog.com/entry/2016/01/13/114625
+
+
+# R で SAS
+
+## 道具
+{haven}パッケージ(tidyverse)
+
+```{r eval = FALSE}
+install.packages("haven")
+library(haven)
+```
+## 読み込み
+```{r eval=FALSE}
+d <- read_sas("hoge.sas7bdat")
+```
+
+## 書き出し
+```{r eval=FALSE}
+# d に何かしらの処理をして d_1 とした上で
+write_sas(d_1, "fuga.sas7bdat")
+```
+
+# 結論
+## 言いたいこと
+{haven} パッケージはいいぞ
+
+## ブログに詳しく書いてます
+http://y-mattu.hatenablog.com/entry/2016/12/09/083000
+
+# Enjoy !
