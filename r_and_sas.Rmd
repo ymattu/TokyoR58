@@ -29,8 +29,8 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
 
 <div class="column1">
 - 松村優哉(@y__mattu)
-- **匿名知的集団ホクソエム**(2016.3-)
-- 大学 4 年生
+- 慶應義塾大学経済学部
+- 星野研究室
 - 計量経済学、ベイズ統計、因果推論、マーケティング
 - 言語: R, SAS, Python
 - 近況: 卒論つらい
